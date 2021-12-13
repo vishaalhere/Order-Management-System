@@ -4,7 +4,7 @@ import noteContext from "../context/orders/orderContext";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleLogout = ()=>{
     localStorage.removeItem('token');
     navigate('/login');
