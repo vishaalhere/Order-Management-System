@@ -23,8 +23,8 @@ const Orders = () => {
       <div className="row mt-3">
         <h2 className={`text-${invert}`}>Your Orders</h2>
         <hr />
-        <table className="table table-hover sortable">
-          <thead>
+        <table className={`table table-${a.toggleMode} text-${invert} sortable`}>
+          <thead key="thead">
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
@@ -38,10 +38,11 @@ const Orders = () => {
               <th scope="col">Status</th>
               <th scope="col">Source</th>
               <th scope="col">Puchase date</th>
+              <th scope="col">Delete</th>
             </tr>
           </thead>
           {orders.map((order) => {
-            return <OrderItems key={order.purchase_date} order={order} />;
+            return <OrderItems key={order._id} order={order} />;
           })}
         </table>
       </div>

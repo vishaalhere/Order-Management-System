@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import noteContext from "../context/orders/orderContext";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
   const navigate = useNavigate();
-  const handleLogout = ()=>{
-    localStorage.removeItem('token');
-    navigate('/login');
-  }
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
   const a = useContext(noteContext);
   const invert = a.mode === "dark" ? "light" : "dark";
   let location = useLocation();
@@ -67,9 +67,33 @@ const Navbar = (props) => {
             >
               {a.mode === "dark" ? "Light Mode" : "Dark Mode"}
             </button>
-            {!localStorage.getItem("token") ?
-            <><Link type="button" to="/login" className={`btn mx-2 btn-outline-${invert} shadow-none`}>Login</Link><Link type="button" to="/signup" className={`btn mx-2 btn-outline-${invert} shadow-none`}>Sign Up</Link></> :<Link type="button" to="/signup" onClick={handleLogout} className={`btn mx-2 btn-outline-${invert} shadow-none`}>Logout</Link>
-            }
+            {!localStorage.getItem("token") ? (
+              <div>
+                <Link
+                  type="button"
+                  to="/login"
+                  className={`btn mx-2 btn-outline-${invert} shadow-none`}
+                >
+                  Login
+                </Link>
+                <Link
+                  type="button"
+                  to="/signup"
+                  className={`btn mx-2 btn-outline-${invert} shadow-none`}
+                >
+                  Sign Up
+                </Link>
+              </div>
+            ) : (
+              <Link
+                type="button"
+                to="/signup"
+                onClick={handleLogout}
+                className={`btn mx-2 btn-outline-${invert} shadow-none`}
+              >
+                Logout
+              </Link>
+            )}
           </div>
         </div>
       </nav>
