@@ -20,7 +20,7 @@ const Home = () => {
       order.order_status,
       order.source
     );
-    alert("Note Added Successfully!!")
+    alert("Order Added Successfully!!")
   };
 
   const onChange = (e) => {
