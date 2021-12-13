@@ -2,7 +2,8 @@ import OrderContext from "./orderContext";
 import { useState } from "react";
 
 const OrderState = (props) => {
-  const host = "http://localhost:5000/";
+  // const host = "http://localhost:5000/";
+  const host = "https://ordermanagewebsite.herokuapp.com/";
   const InitialOrders = [];
   const [mode, setMode] = useState("light");
   const [orders, setOrders] = useState(InitialOrders);
