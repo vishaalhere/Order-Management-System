@@ -5,12 +5,13 @@ import orderContext from "../context/orders/orderContext";
 const SignUp = () => {
   const [credentials, setCredentials] = useState({ name: "" ,email: "", password: "",cpassword : "" });
   let navigate = useNavigate();
+  const host = "https://ordermanagewebsite.herokuapp.com"
   const a = useContext(orderContext);
   const invert = a.mode === "dark" ? "light" : "dark";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/auth/createuser", {
+    const response = await fetch(`${host}/api/auth/createuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
