@@ -1,13 +1,12 @@
-i{
-    cursor: pointer;
+i {
+  cursor: pointer;
 }
 
-body
-{
-    counter-reset: Serial;           /* Set the Serial counter to 0 */
+body {
+  counter-reset: Serial; /* Set the Serial counter to 0 */
 }
 
-tr td:first-child:before{
-  counter-increment: Serial;      /* Increment the Serial counter */
+tr td:first-child:before {
+  counter-increment: Serial; /* Increment the Serial counter */
   content: counter(Serial); /* Display the counter */
 }

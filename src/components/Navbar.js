@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import noteContext from "../context/orders/orderContext";
-import { useNavigate } from "react-router-dom";
 
 const Navbar = (props) => {
   const navigate = useNavigate();
@@ -9,13 +8,15 @@ const Navbar = (props) => {
     localStorage.removeItem("token");
     navigate("/login");
   };
+
   const a = useContext(noteContext);
   const invert = a.mode === "dark" ? "light" : "dark";
   let location = useLocation();
+
   return (
     <>
       <nav className={`navbar navbar-expand-lg navbar-${a.mode} bg-${a.mode}`}>
-        <div className="container-fluid">
+        <div className="container">
           <Link className="navbar-brand" to="/">
             <strong style={{ color: "blue" }}>{props.title}</strong>
           </Link>
@@ -26,36 +27,29 @@ const Navbar = (props) => {
             data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div
-            className="collapse navbar-collapse"
-            id="navbarSupportedContent"
-            style={{ marginLeft: "7%", color: "black" }}
-          >
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto ">
               <li className="nav-item">
                 <Link
                   className={`nav-link ${
                     location.pathname === "/" ? "active" : " "
-                  } mx-3 
+                  } mx-1
                   `}
-                  aria-current="page"
-                  to="/"
-                >
+                  to="/">
                   Home
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
                   className={`nav-link ${
                     location.pathname === "/" ? " " : "active"
-                  } mx-3 
+                  } mx-1
                   `}
-                  to="/orders"
-                >
+                  to="/orders">
                   {props.about}
                 </Link>
               </li>
@@ -63,8 +57,7 @@ const Navbar = (props) => {
             <button
               type="button"
               onClick={a.toggleMode}
-              className={`btn mx-2 btn-outline-${invert} shadow-none`}
-            >
+              className={`btn mx-2 btn-outline-${invert} shadow-none`}>
               {a.mode === "dark" ? "Light Mode" : "Dark Mode"}
             </button>
             {!localStorage.getItem("token") ? (
@@ -72,15 +65,13 @@ const Navbar = (props) => {
                 <Link
                   type="button"
                   to="/login"
-                  className={`btn mx-2 btn-outline-${invert} shadow-none`}
-                >
+                  className={`btn mx-2 btn-outline-${invert} shadow-none`}>
                   Login
                 </Link>
                 <Link
                   type="button"
                   to="/signup"
-                  className={`btn mx-2 btn-outline-${invert} shadow-none`}
-                >
+                  className={`btn mx-2 btn-outline-${invert} shadow-none`}>
                   Sign Up
                 </Link>
               </div>
@@ -89,8 +80,7 @@ const Navbar = (props) => {
                 type="button"
                 to="/signup"
                 onClick={handleLogout}
-                className={`btn mx-2 btn-outline-${invert} shadow-none`}
-              >
+                className={`btn mx-2 btn-outline-${invert} shadow-none`}>
                 Logout
               </Link>
             )}
