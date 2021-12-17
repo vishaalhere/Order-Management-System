@@ -50,8 +50,8 @@ const OrderState = (props) => {
         product_name,
         price,
         order_status,
-        source
-      })
+        source,
+      }),
     });
     const json = await response.json();
     console.log(json);
@@ -117,8 +117,7 @@ const OrderState = (props) => {
         getOrders,
         addOrder,
         deleteOrder,
-      }}
-    >
+      }}>
       {props.children}
     </OrderContext.Provider>
   );

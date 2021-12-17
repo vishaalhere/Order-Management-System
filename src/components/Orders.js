@@ -23,7 +23,8 @@ const Orders = () => {
       <div className="row mt-3">
         <h2 className={`text-${invert}`}>Your Orders</h2>
         <hr />
-        <table className={`table table-${a.toggleMode} text-${invert} sortable`}>
+        <table
+          className={`table table-${a.toggleMode} text-${invert} sortable`}>
           <thead key="thead">
             <tr>
               <th scope="col">#</th>

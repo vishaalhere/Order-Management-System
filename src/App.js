@@ -1,4 +1,3 @@
-import "./App.css";
 import React from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -14,13 +13,19 @@ const App = () => {
   return (
     <OrderState>
       <Router>
-        <Navbar title={title} about={about} /> 
+        <Navbar title={title} about={about} />
         <div className="container">
           <Routes>
             <Route exact path="/" element={<Home key="home" />}></Route>
-            <Route exact path="/orders" element={<Orders key="orders" />}></Route>
+            <Route
+              exact
+              path="/orders"
+              element={<Orders key="orders" />}></Route>
             <Route exact path="/login" element={<Login key="login" />}></Route>
-            <Route exact path="/signup" element={<SignUp key="signup" />}></Route>
+            <Route
+              exact
+              path="/signup"
+              element={<SignUp key="signup" />}></Route>
           </Routes>
         </div>
       </Router>

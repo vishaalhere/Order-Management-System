@@ -4,7 +4,7 @@ import orderContext from "../context/orders/orderContext";
 const AddOrder = () => {
   const a = useContext(orderContext);
   const invert = a.mode === "dark" ? "light" : "dark";
-  const {addOrder} = useContext(orderContext);
+  const { addOrder } = useContext(orderContext);
 
   const [order, setOrder] = useState([]);
 
@@ -127,8 +127,7 @@ const AddOrder = () => {
           <button
             type="submit"
             className={`btn mt-3  btn-${invert} shadow-none`}
-            onClick={handleClick}
-          >
+            onClick={handleClick}>
             Add Order
           </button>
         </div>

@@ -4,10 +4,10 @@ import orderContext from "../context/orders/orderContext";
 
 const Login = (props) => {
   const a = useContext(orderContext);
-  const host = "https://ordermanagewebsite.herokuapp.com"
+  const host = "https://ordermanagewebsite.herokuapp.com";
   const invert = a.mode === "dark" ? "light" : "dark";
   const [credentials, setCredentials] = useState({ email: "", password: "" });
-  let navigate  = useNavigate();
+  let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,8 +37,16 @@ const Login = (props) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div
+      style={{
+        borderRadius: 5,
+        padding: 20,
+        boxShadow: "0px 5px 10px rgba(0,0,0,0.4)",
+        width: "80%",
+        margin: "auto",
+        marginTop: 20,
+      }}>
+      <form type="Post" onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="email" className={`form-label text-${invert}`}>
             Email address
@@ -50,7 +58,7 @@ const Login = (props) => {
             onChange={onChange}
             id="email"
             name="email"
-            aria-describedby="emailHelp"
+            required
           />
         </div>
         <div className="mb-3">
@@ -64,6 +72,7 @@ const Login = (props) => {
             onChange={onChange}
             name="password"
             id="password"
+            required
           />
         </div>
 

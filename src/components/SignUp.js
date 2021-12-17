@@ -3,9 +3,14 @@ import { useNavigate } from "react-router-dom";
 import orderContext from "../context/orders/orderContext";
 
 const SignUp = () => {
-  const [credentials, setCredentials] = useState({ name: "" ,email: "", password: "",cpassword : "" });
+  const [credentials, setCredentials] = useState({
+    name: "",
+    email: "",
+    password: "",
+    cpassword: "",
+  });
   let navigate = useNavigate();
-  const host = "https://ordermanagewebsite.herokuapp.com"
+  const host = "https://ordermanagewebsite.herokuapp.com";
   const a = useContext(orderContext);
   const invert = a.mode === "dark" ? "light" : "dark";
 
@@ -39,9 +44,17 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        borderRadius: 5,
+        padding: 20,
+        boxShadow: "0px 5px 10px rgba(0,0,0,0.4)",
+        width: "80%",
+        margin: "auto",
+        marginTop: 20,
+      }}>
       <form onSubmit={handleSubmit}>
-      <div className="mb-3">
+        <div className="mb-3">
           <label htmlFor="name" className={`form-label text-${invert}`}>
             Name
           </label>

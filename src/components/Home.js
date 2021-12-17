@@ -20,20 +20,25 @@ const Home = () => {
       order.order_status,
       order.source
     );
-    alert("Order Added Successfully!!")
+    alert("Order Added Successfully!!");
   };
 
   const onChange = (e) => {
     setOrder({ ...order, [e.target.name]: e.target.value }); //to append order while writing it
   };
   return (
-    <div>
-      <div
-        className="container border border-grey rounded mt-4"
-        // style={{marginTop:"6.5%"}}
-      >
-        <div className="m-2 p-2">
-          <h1 className={`text-${invert}`}>Add Your Order</h1>
+    <div
+      style={{
+        borderRadius: 5,
+        padding: 20,
+        boxShadow: "0px 5px 10px rgba(0,0,0,0.4)",
+        width: "80%",
+        margin: "auto",
+        marginTop: 20,
+      }}>
+      <div>
+        <h1 className={`text-${invert}`}>Add Your Order</h1>
+        <div className="mb-3">
           <input
             type="text"
             className={`form-control shadow-none bg-${a.mode} text-${invert}`}
@@ -42,6 +47,8 @@ const Home = () => {
             onChange={onChange}
             placeholder="Enter name here"
           />
+        </div>
+        <div className="mb-3">
           <input
             type="number"
             className={`form-control shadow-none bg-${a.mode} text-${invert}`}
@@ -50,6 +57,8 @@ const Home = () => {
             onChange={onChange}
             placeholder="Enter mobile number here"
           />
+        </div>
+        <div className="mb-3">
           <input
             type="email"
             className={`form-control shadow-none bg-${a.mode} text-${invert}`}
@@ -58,6 +67,8 @@ const Home = () => {
             onChange={onChange}
             placeholder="Enter email here"
           />
+        </div>
+        <div className="mb-3">
           <input
             type="text"
             className={`form-control shadow-none bg-${a.mode} text-${invert}`}
@@ -66,6 +77,9 @@ const Home = () => {
             onChange={onChange}
             placeholder="Enter source here"
           />
+        </div>
+
+        <div className="mb-3">
           <input
             type="order_status"
             className={`form-control shadow-none bg-${a.mode} text-${invert}`}
@@ -74,6 +88,9 @@ const Home = () => {
             onChange={onChange}
             placeholder="Enter order_status here"
           />
+        </div>
+        <div className="mb-3"></div>
+        <div className="mb-3">
           <input
             type="number"
             className={`form-control shadow-none bg-${a.mode} text-${invert}`}
@@ -82,6 +99,8 @@ const Home = () => {
             onChange={onChange}
             placeholder="Enter Price here"
           />
+        </div>
+        <div className="mb-3">
           <input
             type="text"
             className={`form-control shadow-none bg-${a.mode} text-${invert}`}
@@ -90,6 +109,8 @@ const Home = () => {
             onChange={onChange}
             placeholder="Enter product name here"
           />
+        </div>
+        <div className="mb-3">
           <input
             type="number"
             className={`form-control shadow-none bg-${a.mode} text-${invert}`}
@@ -98,6 +119,9 @@ const Home = () => {
             onChange={onChange}
             placeholder="Enter product id here"
           />
+        </div>
+
+        <div className="mb-3">
           <input
             type="text"
             className={`form-control shadow-none bg-${a.mode} text-${invert}`}
@@ -106,16 +130,14 @@ const Home = () => {
             onChange={onChange}
             placeholder="Enter address here"
           />
-
-          <button
-            type="submit"
-            className={`btn mt-3  btn-${invert} shadow-none`}
-            onClick={handleClick}
-          >
-            Add Order
-          </button>
-          
         </div>
+
+        <button
+          type="submit"
+          className={`btn mt-3  btn-${invert} shadow-none`}
+          onClick={handleClick}>
+          Add Order
+        </button>
       </div>
     </div>
   );
